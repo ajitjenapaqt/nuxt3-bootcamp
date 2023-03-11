@@ -1,16 +1,3 @@
-<script setup>
-const route = useRoute()
-
-useHead({
-  title: `${route.params.name.toUpperCase()}`
-})
-
-definePageMeta({
-  layout: "custom"
-})
-
-</script>
-
 <template>
   <div>
       <CarDetailHero />
@@ -19,3 +6,18 @@ definePageMeta({
       <CarDetailContact />
     </div>
 </template>
+
+<script setup>
+import {useUtilities} from "~/composables/useUtilities";
+
+const route = useRoute()
+const {capitalizeFirstLetter} = useUtilities()
+
+useHead({
+  title: `${capitalizeFirstLetter(route.params.name)}`
+})
+
+definePageMeta({
+  layout: "custom"
+})
+</script>
