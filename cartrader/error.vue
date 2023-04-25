@@ -14,6 +14,8 @@
 const error = useError();
 
 const handleError = () => {
-  navigateTo("/");
+  clearError({
+    redirect: "/",
+  })
 }
 </script>
